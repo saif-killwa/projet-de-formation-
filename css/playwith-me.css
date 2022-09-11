@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "poppins" , sans-serif;
+}
+body{
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+}
+/*this is the side bar  */
+.sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 78px;
+    background: #11101d;
+    padding: 6px 14px ;
+    transition: all 0.5s ease;  
+}
+.sidebar.active{
+    width: 240px;
+}
+.sidebar .logo_content .logo{
+    color: #fff;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+.sidebar.active .logo_content .logo{
+    opacity: 1;
+    pointer-events: none;
+}
+.logo_content .logo i{
+    font-size: 28px;
+    margin-right: 5px;
+
+}
+.logo_content .logo .logo-name{
+    font-size: 20px;
+    font-weight: 400;
+}
+.sidebar #btn{
+    position: absolute;
+    color: #fff;
+    left: 50%;
+    top: 6px;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translateX(-50%); 
+    cursor: pointer;
+}
+.sidebar.active #btn{
+    left: 90%;
+}
+.sidebar ul{
+    margin-top: 20px; 
+}
+.sidebar ul li{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0 5px;
+    list-style: none;
+    line-height: 50px;   
+}
+.sidebar ul li .tooltip{
+    position: absolute;
+    left: 122px;
+    top: 0;
+    transform: translate(-50% , -50%);
+    border-radius: 6px;
+    line-height: 35px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    height: 50px;
+    width: 122px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: 0s;
+    opacity: 0;
+    pointer-events: none;
+    display: block;
+}
+.sidebar.active ul li .tooltip{
+    display: none;
+}
+.sidebar ul li:hover .tooltip{
+    top: 50%;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+.sidebar ul li a{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+.sidebar ul li a:hover{
+    background: #fff;
+    color: #11101d;
+}
+.sidebar ul li i{
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    text-align: center;
+}
+.sidebar .links-name{
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+.sidebar.active .links-name{
+    opacity: 1;
+    pointer-events: auto;
+}
+.sidebar ul li input{
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    background: #1d1b31;
+    padding-left: 50px;
+    font-size: 18px;
+    color: #fff;
+}
+.sidebar ul li .fa-magnifying-glass{
+    position:absolute;
+    z-index: 99;
+    color: #fff;
+    font-size: 22px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+.sidebar ul li .fa-magnifying-glass:hover{
+    background: #fff;
+    color: #1d1b31;
+}
+.sidebar .profile-content{
+    position: absolute;
+    color: #fff;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 90px;
+}
+.sidebar .profile-content .profile{
+    position: relative;
+    padding: 10px 6px;
+    height: 88px;
+    background: none;
+    transition: all 0.4s ease;
+}
+.sidebar.active .profile-content .profile{
+    background: #1d1b31;
+}
+.profile-content .profile .profile-details{
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+.sidebar.active .profile .profile-details{
+    opacity: 1;
+    pointer-events: auto;
+}
+.profile .profile-details img{
+    width: 70px;
+    height: 67px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.profile .profile-details .name-job{
+    margin-left: 10px;
+}
+.profile .profile-details .name{
+    font-size: 15px;
+    font-weight: 400;
+}
+.profile .profile-details .job{
+    font-size: 12px;
+}
+.profile #log-out{
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-40%);
+    min-width: 45px;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.4s ease;
+    background: #11101d;
+}
+.profile #log-out:hover{
+    background: #1d1b31;
+}
+.sidebar.active .profile #log-out{
+    left: 88%; 
+}
+.sidebar.active .profile #log-out{
+    background: #1d1b31;
+}
+.sidebar.active .profile #log-out:hover{
+    background: #11101d;
+}
+.sidebar.active ~ .home-content{
+    
+    z-index: -1;
+}
+.sidebar ul{
+    padding-left: 0rem;
+}
+
+
+/*this is the homeee content*/
+.home-content{
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 78px);
+    left: 78px;
+    transition: all 0.5s ease;
+}
+.home-content .topbar{
+    background: #11101d;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: #1d1b31;
+    position: fixed;
+    z-index: 99;
+}
+#btn2{
+    color: #fff;
+    display: none;
+}
+.download{
+    margin: 0px 75px;
+}
+.Login{
+    margin: 0 111px;
+}
+.download .down{
+    width: 200px;
+}
+.down{
+    width: 210px;
+    
+}
+.topbar button{
+    width: 159px;
+    height: 35px;
+    justify-content: space-around;
+    display: inline-flex;
+    align-items: center;
+}
+.Login .log{
+    width: 100px;
+}
+.topbar .icons-nav{
+    width: 308px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    right: 79px;
+}
+.topbar .icons-nav i{
+    cursor: pointer;
+}
+.topbar .icons-nav i:hover{
+    background: #1d1b31;
+    color: rgba(255, 68, 0, 0.862);
+}
+
+.application{
+    margin-top: 70px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: #00ffff33;
+    gap: 50px;
+    z-index: -1;
+    position: relative;
+}
+.application img{
+    width: 400px;
+}
+.application .app-here{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.application .app-here .title{
+    font-size: 30px;
+    font-weight: 600;
+}
+.application .app-here span{
+    font-size: 20px;
+}
+
+.container-playwithme{
+    z-index: -1;
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background: #11101d;
+}
+.container-playwithme span{
+    font-size: 20px;
+}
+.edit-profile{
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #fff;
+    padding-left: 20px;
+    padding-top: 30px;
+    border-left: 1px solid #ffffff36;
+}
+.edit-profile .title{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+.edit-profile select{
+    background: transparent;
+    border-radius: 10px;
+    color: #fff;
+    border: 2px solid;
+    width: 50%;
+    cursor: pointer;
+}
+.name{
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+    gap: 33px;
+    margin-top: 30px;
+}
+.edit-profile select:hover{
+    background-color: #1d1b31;
+}
+.region{
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+    margin-top: 15px;
+    align-items: baseline;
+}
+.check-mode,.check-roles{
+    margin-left: 0px;
+    
+}
+.edit-profile select option{
+    background: #11101d;
+}
+.gameplay-mode,.roles-lol,.ranking{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+label{
+    margin-right: 31px;
+}
+.check-roles img{
+    width: 37px;
+    margin-right: 20px;
+}
+.contact-withme,.description{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 30px 0px;
+}
+.edit-profile input,textarea{
+    background: transparent;
+    border-radius: 10px;
+    color: #fff;
+    border: 2px solid;
+    padding: 7px;
+    cursor: pointer;
+}
+.container-playwithme .edit-profile button{
+    padding: 10px;
+    width: 110px;
+    position: relative;
+    left: 190px;
+    margin-bottom: 50px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid;
+    border-radius: 10px;
+}
+
+.player-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 35px;
+    color: #fff;
+}
+.player-cards .title-cards{
+    display: flex;
+    gap: 50px;
+    margin-left: 30px;
+}
+.player-cards .title-cards span{
+    font-size: 25px;
+    font-weight: bold;
+}
+.player-cards .title-cards button{
+    padding: 10px;
+    background: transparent;
+    color: #fff;
+    border: 2px solid;
+    border-radius: 10px;
+}
+.cards-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card1{
+    background: #1d1b31a1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0px;
+    width: 450px;
+    gap: 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+#newcard{
+    display: none;
+}
+.card-name{
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 30px;
+    border-bottom: 1px solid #ffffff21;
+}
+.card-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+}
+.card-form p{
+    color: gray;
+    font-weight: 600;
+}
+.card-form h5{
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/*advertisement*/
+.advertisement{
+    position: fixed;
+    right: 10px;
+    margin-top: 10px;
+    width: 30%;
+    height: 73vh;
+    background: #1d1b31;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+/*responsive*/
+@media (max-width:1400px) {
+    .download{
+        display: none;
+    }
+    .Login{
+        margin: 0;
+        margin-left: 10px;
+    }
+    .topbar .icons-nav{width: 250px;}
+}
+@media (max-width:1153px) {
+    .player-cards .title-cards span{font-size: 20px;}
+    .player-cards .title-cards{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        margin-left: 10px;
+    }
+    .card1{max-width: 300px;}
+    .edit-profile input, textarea{width: 60%;}
+    .application{display: none;}
+    .edit-profile,.player-cards{padding-top: 90px;}
+    .container-playwithme .edit-profile button{left: 0;}
+}
+@media (max-width:950px) {
+    .check-mode,.check-roles{margin-left: -103px;}
+    .logo-ugg{display: none;}
+    .container-playwithme{grid-template-columns: 1fr 1fr;}
+}
+@media (max-width:770px) {
+   .sidebar{    display: none;}
+   .home-content {
+        left: 0;
+        width: calc(100% + 78px);
+    }
+    #btn2 {
+        display: block;
+        padding: 33px;
+    }
+    .topbar .icons-nav {
+        width: 200px;
+        right: 3px;
+        font-size: 15px;
+    }
+    .sidebar.active {
+        display: block;
+    }
+    #name{width: 40%;}
+    .edit-profile select{width: 40%;}
+    .container-playwithme{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .advertisement{display: none;}
+    .player-cards .title-cards{
+        align-items: baseline;
+        margin-left: 30px;
+    }
+    .edit-profile .title{text-align: initial;}
+    .container-playwithme .edit-profile button{
+        left: 240px;
+        width: 200px;
+    }
+    .cards-container{width: 85%;}
+}
+@media (max-width:730px) {
+    .topbar .icons-nav{display: none;}
+    .Login{
+        position: absolute;
+        right: 10px;
+    }
+    .topbar button {
+        width: 105px;
+        font-size: 10px;
+    }
+    
+}
